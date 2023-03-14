@@ -25,7 +25,7 @@ settings = {
     "last_quote_delta": datetime.timedelta(days=7),
     "max_spread": 100.0 / 100,
 
-    "symbols": ["USDTRY", "XPDUSD", "EURRUB", "GBPSEK", "USDNOK"],
+    "symbols": None,  # ["USDTRY", "XPDUSD", "EURRUB", "GBPSEK", "USDNOK"],
 
     "features": {
         Mean(15),
