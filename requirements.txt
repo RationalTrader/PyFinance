@@ -8,3 +8,4 @@ scikit-learn~=1.2.2
 matplotlib~=3.7.1
 tqdm~=4.65.0
 scipy~=1.10.1
+yahoo-finance-async=0.1.3

@@ -14,6 +14,11 @@ class Mt5DataProvider(DataProvider):
 
         self.__terminal = terminal
 
+    @property
+    def name(self):
+
+        return "Meta Trader 5"
+
     def get_symbols(self):
 
         self.__assure_initialization()
@@ -80,6 +85,10 @@ class Mt5DataProvider(DataProvider):
         rates = rates.rename(columns={"tick_volume": "volume"})
 
         return rates
+
+    def shutdown(self):
+
+        self.__terminal.shutdown()
 
     def __assure_initialization(self):
 

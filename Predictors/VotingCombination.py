@@ -19,16 +19,12 @@ class VotingCombination(DataPredictor):
             tree = DecisionTreeRegressor(max_depth=6, random_state=70)
             svr = SVR(epsilon=1.5)
             lin = LinearRegression()
-
-            model = VotingRegressor(estimators=[
-                ('lr', lin), ("tree", tree), ("svr", svr)])
+            model = VotingRegressor(estimators=[('lr', lin), ("tree", tree), ("svr", svr)])
         else:
             name = "VotCla"
             tree = DecisionTreeClassifier(max_depth=6, random_state=70)
             svr = SVC()
             lin = LogisticRegression()
-
-            model = VotingClassifier(estimators=[
-                ('lr', lin), ("tree", tree), ("svr", svr)])
+            model = VotingClassifier(estimators=[('lr', lin), ("tree", tree), ("svr", svr)])
 
         super().__init__(name, model)

@@ -24,6 +24,7 @@ from UserInterface import UserInterface
 settings = {
     "last_quote_delta": datetime.timedelta(days=7),
     "max_spread": 100.0 / 100,
+    "spread_delta": datetime.timedelta(days=60),
 
     "symbols": None,  # ["USDTRY", "XPDUSD", "EURRUB", "GBPSEK", "USDNOK"],
 
@@ -65,6 +66,8 @@ if __name__ == '__main__':
 
     terminal = Mt5Terminal()
     data_provider = Mt5DataProvider(terminal)
+    data_provider = SqlDataProvider(data_provider)
+    data_provider.spread_delta = settings["spread_delta"]
     benchmark_provider = YfDataProvider()
 
     asset_selection = AssetSelection(data_provider)
@@ -172,4 +175,6 @@ if __name__ == '__main__':
             ui.display_drawdown(backtest["returns"])
 
     finally:
-        terminal.shutdown()
+
+        benchmark_provider.shutdown()
+        data_provider.shutdown()

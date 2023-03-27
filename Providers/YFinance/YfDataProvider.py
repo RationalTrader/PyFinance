@@ -21,8 +21,15 @@ class YfDataProvider(DataProvider):
             Timeframe.MN: "1mo"
         }
 
+    @property
+    def name(self):
+
+        return "Yahoo Finance"
+
     def get_symbols(self):
+
         pass
+
         # dow = si.tickers_dow()
         # nasdaq = si.tickers_nasdaq()
         # sp500 = si.tickers_sp500()
